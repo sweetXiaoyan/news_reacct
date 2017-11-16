@@ -1,0 +1,38 @@
+/*页头*/
+.logo{
+    padding-top: 4px;
+    align-items: center;
+    display: flex;
+}
+.logo img{
+    width: 46px;
+    height: 46px;
+    color: #4590e9;
+}
+.logo span{
+    font-size: 24px;
+    padding-left: 6px;
+}
+#header .register > .regLink{
+    display: inline-block;
+    padding-left: 10px;
+}
+/*--页头--*/
+
+/*内容部分*/
+
+.container{
+    padding-top: 6px;
+}
+.leftContainer{
+    width: 400px;
+    float: left;
+}
+ Carousel{
+    width: 400px;
+    float: left;
+}
+/*--页脚--*/
+.footer{
+    text-align: center;
+}
