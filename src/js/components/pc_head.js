@@ -12,16 +12,18 @@ class PCHeader extends React.Component{
             current:"tiyu",
             modalVisible:false,
             action:'login',
-            hasLogined:true,
+            hasLogined:false,
             nickname:"111",
             userId:""
         };
     }
     // 点击导航
     handleClick(e){
-        if (e.key ='register'){
+        if (e.key ==='register'){
             this.setState({current:'register'});
             this.setModalVisible(true);
+        }else {
+            this.setState({current:e.key});
         }
     };
     // 设置模态框
@@ -37,12 +39,6 @@ class PCHeader extends React.Component{
         };
         this.props.form.validateFields((err, formData) => {
             if (!err) {
-                // console.log(formData);
-                // fetch("http://newsapi.gugujiankong.com/Handler.ashx?action=register&username=userName&password=password&r_userName="+formData.r_userName+"&r_password="+formData.r_password+"&r_confirmPassword="+formData.r_confirmPassword,myFetchOptions).then(res =>res.json()).then(json =>{
-                //     this.setState({nickname:json.NickUserName,userId:json.UserId});
-                // });
-                // message.success("注册成功！");
-                // this.setModalVisible(false);
                 fetch("http://newsapi.gugujiankong.com/Handler.ashx?action=" + this.state.action
                     + "&username="+formData.userName+"&password="+formData.password
                     +"&r_userName=" + formData.r_userName + "&r_password="
@@ -72,6 +68,7 @@ class PCHeader extends React.Component{
     render(){
         let {getFieldDecorator} = this.props.form;
         /*判断用户是否登录*/
+        console.log(this.state.hasLogined);
         const userShow = this.state.hasLogined
             ? <Menu.Item key="logout" className="register">
                 <a href="javascript:;" className="regLink">欢迎你，{this.state.nickname}</a>
