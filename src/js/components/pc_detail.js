@@ -12,6 +12,7 @@ export default class PCNewsDetail extends React.Component{
         var myFetchOption ={
             method:'GET'
         };
+        console.log(this.props.params.uniquekey+'WillMount');
         fetch("http://newsapi.gugujiankong.com/Handler.ashx?action=getnewsitem&uniquekey=" + this.props.params.uniquekey, myFetchOptions).then(res => res.json()).then(json =>{
             this.setState({newsItem:json});
             document.title = this.state.newsItem.title + " - React News | React 驱动的新闻平台";
@@ -30,7 +31,8 @@ export default class PCNewsDetail extends React.Component{
 
                         </div>
                     </Col>
-                    <Col span={6}></Col>
+                    <Col span={6}>
+                    </Col>
                     <Col span={2}></Col>
                 </Row>
             </div>
